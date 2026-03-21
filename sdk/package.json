@@ -1,7 +1,7 @@
 {
-  "name": "@shadow-proxy/sdk",
+  "name": "perx402-sdk",
   "version": "0.1.0",
-  "description": "Dead-simple SDK for Shadow Proxy — private x402 payments for AI agents on Solana",
+  "description": "Private x402 payment SDK for AI agents on Solana — powered by MagicBlock's Private Ephemeral Rollup",
   "type": "module",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",

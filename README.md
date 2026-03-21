@@ -2,6 +2,10 @@
 
 > **Built for [MagicBlock Solana Blitz V2 Hackathon](https://luma.com/olf99o4i?tk=WPBgB2) — Private Payments Track**
 
+[![npm](https://img.shields.io/npm/v/perx402-sdk?color=11B2BA&label=perx402-sdk)](https://www.npmjs.com/package/perx402-sdk)
+[![License: MIT](https://img.shields.io/badge/License-MIT-green.svg)](LICENSE)
+[![Solana Devnet](https://img.shields.io/badge/Solana-Devnet-9945FF)](https://explorer.solana.com/address/AVrFfzTREffC188KtCrJ2kf7AGgZFWcrzzRrYMku7k2n?cluster=devnet)
+
 PERx402 is a privacy-preserving payment gateway that enables AI agents to pay for x402-protected APIs on Solana without revealing **who paid, how much, or what they accessed** on-chain. It leverages MagicBlock's Private Ephemeral Rollup (PER) running inside Intel TDX to keep payment details confidential while maintaining on-chain verifiability through settlement hashes.
 
 ---
@@ -71,7 +75,7 @@ Agent                          PERx402 Proxy                 MagicBlock PER (TEE
 | Privacy layer | MagicBlock Private Ephemeral Rollup (PER), Intel TDX |
 | Payment standard | x402 v2 (Coinbase) |
 | Proxy server | Node.js, Express, TypeScript (strict) |
-| SDK | `@shadow-proxy/sdk` — zero-dependency TypeScript |
+| SDK | [`perx402-sdk`](https://www.npmjs.com/package/perx402-sdk) — published on npm, zero-dependency TypeScript |
 | Dashboard | Next.js 15, React 19, Tailwind CSS v4 |
 | Wallet adapter | Solana Wallet Adapter (Phantom, Solflare) |
 
@@ -95,9 +99,14 @@ Agent                          PERx402 Proxy                 MagicBlock PER (TEE
 - `POST /stream/start` — configurable interval, max payments, max spend cap
 - Each tick generates a separate settlement hash → higher anonymity set
 
-### SDK
+### SDK — [perx402-sdk on npm](https://www.npmjs.com/package/perx402-sdk)
+
+```bash
+npm install perx402-sdk
+```
+
 ```typescript
-import { shadowFetch } from "@shadow-proxy/sdk";
+import { shadowFetch } from "perx402-sdk";
 
 const fetch = shadowFetch({
   proxyUrl: "http://localhost:3001",
@@ -132,7 +141,7 @@ PERx402/
 │       ├── session-manager.ts   #   PER auth + session refresh
 │       ├── anchor-client.ts     #   On-chain receipt storage
 │       └── mock-x402-server.ts  #   Mock API for demo (port 9999)
-├── sdk/                         # @shadow-proxy/sdk npm package
+├── sdk/                         # perx402-sdk — published on npm
 │   └── src/
 │       ├── client.ts            #   ShadowProxyClient + PaymentStream
 │       ├── shadow-fetch.ts      #   shadowFetch() convenience wrapper
@@ -389,7 +398,7 @@ Transaction: 5xKm...a9f2
 
 ## Future Roadmap
 
-- **SDK on npm** — publish `@shadow-proxy/sdk` for any agent framework (LangChain, Eliza, AutoGPT)
+- **~~SDK on npm~~** — ✅ [`perx402-sdk`](https://www.npmjs.com/package/perx402-sdk) published — works with any agent framework (LangChain, Eliza, AutoGPT)
 - **Multi-proxy pool** — expanded anonymity set across multiple proxy nodes
 - **ZK receipt proofs** — prove payment occurred without revealing identity
 - **Cross-chain** — EVM chains via Aztec / zkSync
