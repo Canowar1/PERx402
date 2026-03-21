@@ -8,8 +8,9 @@ import PaymentFlow, { type FlowStep } from "@/components/PaymentFlow";
 import AgentInfoBar from "@/components/AgentInfoBar";
 import AgentSelector, { type AgentConfig } from "@/components/AgentSelector";
 import TransactionStory from "@/components/TransactionStory";
+import SessionGate from "@/components/SessionGate";
 import { useBalance } from "@/hooks/useBalance";
-import { sendPayment, initSession, getReceiptDetail } from "@/lib/api";
+import { sendPayment, getReceiptDetail } from "@/lib/api";
 
 // Demo defaults
 const DEFAULT_TARGET = "http://localhost:9999/api/market-data";
@@ -59,16 +60,7 @@ export default function Home() {
     10000
   );
 
-  useEffect(() => {
-    initSession()
-      .then((res) => {
-        setSessionReady(res.initialized);
-        if (res.registeredOnChain) {
-          console.log("[dashboard] Agent registered on-chain", res.explorerUrl);
-        }
-      })
-      .catch(() => setSessionReady(false));
-  }, []);
+  // Session is now triggered manually via SessionGate — no auto-init on mount
 
   useEffect(() => {
     if (!result?.receiptHash || result.txSignature) return;
@@ -165,6 +157,18 @@ export default function Home() {
     setResult(null);
     setFlowStep(0);
   };
+
+  // Show Session Gate until user manually initializes
+  if (!sessionReady) {
+    return (
+      <SessionGate
+        onSessionReady={(selectedAgent) => {
+          setAgent(selectedAgent);
+          setSessionReady(true);
+        }}
+      />
+    );
+  }
 
   return (
     <div className="min-h-screen flex flex-col bg-[#F7F8F8]">
