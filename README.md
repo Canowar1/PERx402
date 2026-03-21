@@ -1,6 +1,6 @@
 # PERx402 — Private Payments for AI Agents on Solana
 
-> **Built for [MagicBlock Solana Blitz V2 Hackathon](https://www.magicblock.gg/) — Private Payments Track**
+> **Built for [MagicBlock Solana Blitz V2 Hackathon](https://luma.com/olf99o4i?tk=WPBgB2) — Private Payments Track**
 
 PERx402 is a privacy-preserving payment gateway that enables AI agents to pay for x402-protected APIs on Solana without revealing **who paid, how much, or what they accessed** on-chain. It leverages MagicBlock's Private Ephemeral Rollup (PER) running inside Intel TDX to keep payment details confidential while maintaining on-chain verifiability through settlement hashes.
 
