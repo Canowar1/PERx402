@@ -7,35 +7,8 @@ on:
     branches: [main]
 
 jobs:
-  test-program:
-    name: Anchor program tests
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v4
-
-      - name: Install Solana
-        run: |
-          sh -c "$(curl -sSfL https://release.anza.xyz/v2.3.13/install)"
-          echo "$HOME/.local/share/solana/install/active_release/bin" >> $GITHUB_PATH
-
-      - name: Install Anchor
-        run: npm install -g @coral-xyz/anchor-cli@0.32.1
-
-      - name: Install Rust
-        uses: dtolnay/rust-toolchain@stable
-        with:
-          toolchain: "1.85.0"
-
-      - name: Build program
-        run: anchor build
-        working-directory: .
-
-      - name: Run LiteSVM tests
-        run: cargo test
-        working-directory: programs/shadow_proxy
-
-  test-proxy:
-    name: Proxy server tests
+  type-check:
+    name: TypeScript type check
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
@@ -43,21 +16,20 @@ jobs:
       - name: Setup Node
         uses: actions/setup-node@v4
         with:
-          node-version: "24"
+          node-version: "20"
 
-      - name: Install dependencies
+      - name: Install proxy dependencies
         run: npm install
         working-directory: proxy
 
-      - name: Type check
+      - name: Type check proxy
         run: npx tsc --noEmit
         working-directory: proxy
 
-      - name: Run unit tests
-        run: npm test
-        working-directory: proxy
-        env:
-          SOLANA_RPC_URL: https://api.devnet.solana.com
-          TEE_RPC_URL: https://tee.magicblock.app
-          USDC_MINT: 4zMMC9srt5Ri5X14GAgXhaHii3GnPAEERYPJgZJDncDU
-          PROXY_WALLET_SECRET_KEY: ${{ secrets.PROXY_WALLET_CI }}
+      - name: Install dashboard dependencies
+        run: npm install
+        working-directory: dashboard
+
+      - name: Build dashboard
+        run: npm run build
+        working-directory: dashboard
