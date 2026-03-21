@@ -1,0 +1,26 @@
+# Secrets
+.env
+.env.local
+*.pem
+.wallets/
+
+# Build artifacts
+target/
+dist/
+.next/
+node_modules/
+*.so
+
+# OS
+.DS_Store
+Thumbs.db
+
+# IDE
+.vscode/
+.idea/
+
+# Claude Code internals
+.claude/settings.local.json
+
+# Logs
+*.log

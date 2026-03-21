@@ -1,0 +1,24 @@
+{
+  "name": "shadow-proxy",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "build:anchor": "anchor build -- --skip-tools-install && anchor idl build -o target/idl/shadow_proxy.json",
+    "dev:proxy": "cd proxy && npm run dev",
+    "dev:dashboard": "cd dashboard && npm run dev",
+    "dev:mock-api": "npx tsx proxy/src/mock-x402-server.ts",
+    "fund-devnet": "npx tsx scripts/fund-devnet.ts",
+    "fund-devnet:load": "npx tsx scripts/fund-devnet.ts --load",
+    "demo:agent": "cd agent && npm run demo",
+    "demo": "bash scripts/demo.sh",
+    "test": "cd proxy && npm test",
+    "test:e2e": "cd proxy && npm run test:e2e"
+  },
+  "devDependencies": {
+    "@solana/spl-token": "^0.4.0",
+    "@solana/web3.js": "^1.98.0",
+    "bs58": "^6.0.0",
+    "tsx": "^4.19.0"
+  }
+}

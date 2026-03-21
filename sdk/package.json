@@ -1,0 +1,35 @@
+{
+  "name": "@shadow-proxy/sdk",
+  "version": "0.1.0",
+  "description": "Dead-simple SDK for Shadow Proxy — private x402 payments for AI agents on Solana",
+  "type": "module",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "exports": {
+    ".": {
+      "import": "./dist/index.js",
+      "types": "./dist/index.d.ts"
+    }
+  },
+  "files": [
+    "dist"
+  ],
+  "scripts": {
+    "build": "tsc",
+    "clean": "rm -rf dist",
+    "prepublishOnly": "npm run clean && npm run build"
+  },
+  "keywords": [
+    "x402",
+    "solana",
+    "privacy",
+    "ai-agent",
+    "shadow-proxy",
+    "magicblock",
+    "tee"
+  ],
+  "license": "MIT",
+  "engines": {
+    "node": ">=18.0.0"
+  }
+}
