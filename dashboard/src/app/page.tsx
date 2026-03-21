@@ -229,7 +229,7 @@ export default function Home() {
               What Does The Chain See?
             </h2>
             <p className="text-[#8E95A2] text-sm max-w-xl mx-auto font-[family-name:var(--font-mono)] leading-relaxed">
-              Shadow Proxy routes x402 payments through MagicBlock&apos;s TEE.
+              PERx402 routes x402 payments through MagicBlock&apos;s Private Ephemeral Rollup.
               Left panel: what Solana Explorer reveals. Right: what only the proxy knows.
             </p>
           </div>

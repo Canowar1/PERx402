@@ -117,7 +117,7 @@ export default function SessionGate({ onSessionReady }: SessionGateProps) {
               Connect Your Agent
             </h2>
             <p className="text-[#8E95A2] text-sm font-[family-name:var(--font-mono)] leading-relaxed">
-              Select an agent to route private x402 payments through the TEE.
+              Select an agent to route private x402 payments through MagicBlock&apos;s PER.
               <br />
               Your identity stays hidden — only a settlement hash reaches the chain.
             </p>
@@ -263,7 +263,7 @@ export default function SessionGate({ onSessionReady }: SessionGateProps) {
                 <Row label="Pubkey" value={truncate(activeAgent.pubkey, 14)} mono />
                 <Row label="USDC ATA" value={truncate(activeAgent.ata, 14)} mono />
                 <Row label="Network" value="Solana Devnet" />
-                <Row label="Privacy" value="TEE / Intel TDX" />
+                <Row label="Privacy" value="MagicBlock's PER" />
               </div>
             </div>
           )}
@@ -280,11 +280,11 @@ export default function SessionGate({ onSessionReady }: SessionGateProps) {
                   Registering on Solana...
                 </p>
                 <p className="text-[10px] text-[#8E95A2] font-[family-name:var(--font-mono)]">
-                  AgentIdentity PDA · TEE session · Private rollup
+                  AgentIdentity PDA · MagicBlock PER session · Solana devnet
                 </p>
               </div>
               <div className="w-full space-y-1.5 mt-1">
-                {["Verifying TEE integrity", "Initializing TEE session", "Registering AgentIdentity PDA"].map((step, i) => (
+                {["Verifying MagicBlock PER integrity", "Opening PER session", "Registering AgentIdentity PDA on Solana"].map((step, i) => (
                   <div key={i} className="flex items-center gap-2">
                     <svg className="animate-spin h-3 w-3 text-[#11B2BA]/60" viewBox="0 0 24 24" fill="none">
                       <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4" />
@@ -312,7 +312,7 @@ export default function SessionGate({ onSessionReady }: SessionGateProps) {
                   Session Active
                 </p>
                 <p className="text-[10px] text-[#8E95A2] font-[family-name:var(--font-mono)]">
-                  Agent registered · TEE session open · Ready to pay privately
+                  Agent registered · MagicBlock PER session open · Ready to pay privately
                 </p>
               </div>
               {txSignature && explorerUrl && (
@@ -380,7 +380,7 @@ export default function SessionGate({ onSessionReady }: SessionGateProps) {
           {initStep === "idle" && (
             <p className="text-center text-[9px] text-[#8E95A2] font-[family-name:var(--font-mono)] leading-relaxed">
               Only a settlement hash reaches Solana.
-              Amount, API endpoint, and agent identity stay inside the TEE.
+              Amount, API endpoint, and agent identity stay inside MagicBlock&apos;s PER.
             </p>
           )}
         </div>

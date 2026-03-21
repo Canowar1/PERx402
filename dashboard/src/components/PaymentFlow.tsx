@@ -20,13 +20,13 @@ const steps = [
         : "Proxy caught the 402 before the agent saw it",
   },
   {
-    label: "TEE TRANSFER",
+    label: "MagicBlock PER",
     icon: "\u21BB",
-    subtitle: "Amount moves inside Intel TDX · invisible on-chain",
+    subtitle: "MagicBlock's Private Ephemeral Rollup · invisible on-chain",
     detail: (agent?: string, proxy?: string, amount?: number) =>
       agent && proxy
         ? `${agent.slice(0, 6)}… → ${proxy.slice(0, 6)}… · ${amount ?? 0.1} USDC · Solana sees: nothing`
-        : "USDC routed privately inside MagicBlock TEE",
+        : "USDC routed privately inside MagicBlock's PER",
   },
   {
     label: "200 DELIVERED",

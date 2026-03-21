@@ -143,8 +143,8 @@ export default function TransactionStory({
 
         <TraceStep
           index={3}
-          title="TEE Private Transfer"
-          tag="Inside Intel TDX"
+          title="MagicBlock PER Transfer"
+          tag="MagicBlock's PER"
           tagColor="brand"
           delay="0.25s"
           detail={
@@ -153,7 +153,7 @@ export default function TransactionStory({
               <span className="text-[#8E95A2] mx-1">→</span>
               <span className="text-[#8E95A2]">{truncate(proxyPubkey, 8)}</span>
               <br />
-              <span className="text-[#11B2BA]/70">{amount} USDC</span> moved inside MagicBlock TEE.{" "}
+              <span className="text-[#11B2BA]/70">{amount} USDC</span> moved inside MagicBlock&apos;s Private Ephemeral Rollup.{" "}
               <span className="text-[#8E95A2]">Solana sees: nothing.</span>
             </>
           }

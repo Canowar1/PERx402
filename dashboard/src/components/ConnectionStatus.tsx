@@ -87,8 +87,8 @@ export default function ConnectionStatus() {
         {connection.checking
           ? "SCANNING..."
           : isConnected
-            ? "TEE ONLINE"
-            : "TEE OFFLINE"}
+            ? "PER ONLINE"
+            : "PER OFFLINE"}
       </span>
     </div>
   );

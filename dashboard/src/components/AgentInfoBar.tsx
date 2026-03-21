@@ -112,7 +112,7 @@ export default function AgentInfoBar({
             </div>
           ) : (
             <span className="text-[9px] text-[#7D7F82] font-[family-name:var(--font-mono)]">
-              x402 &middot; TEE &middot; Devnet
+              x402 &middot; MagicBlock PER &middot; Devnet
             </span>
           )}
         </div>

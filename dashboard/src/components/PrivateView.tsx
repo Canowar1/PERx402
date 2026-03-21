@@ -155,7 +155,7 @@ export default function PrivateView({
         {hasData && (
           <div className="mt-4 py-3 border-t border-[#11B2BA]/20">
             <p className="text-[11px] text-[#7D7F82] text-center font-[family-name:var(--font-mono)] uppercase tracking-wider leading-relaxed">
-              Full payment details visible only inside TEE + Shadow Proxy.
+              Full payment details visible only inside MagicBlock&apos;s PER + Shadow Proxy.
               <br />
               Amount, API URL, and agent identity are{" "}
               <span className="text-[#11B2BA] font-semibold">never written to chain</span>.
