@@ -4,7 +4,7 @@
   "type": "module",
   "scripts": {
     "dev": "tsx watch src/server.ts",
-    "build": "tsc",
+    "build": "tsc && cp src/shadow_proxy.json dist/shadow_proxy.json",
     "start": "node dist/server.js",
     "test": "vitest run",
     "test:e2e": "vitest run tests/e2e.test.ts"
