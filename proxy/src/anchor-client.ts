@@ -19,7 +19,7 @@ import {
 import { createRequire } from "module";
 
 const require = createRequire(import.meta.url);
-const IDL = require("../../target/idl/shadow_proxy.json") as Idl;
+const IDL = require("./shadow_proxy.json") as Idl;
 
 const PROGRAM_ID = new PublicKey("AVrFfzTREffC188KtCrJ2kf7AGgZFWcrzzRrYMku7k2n");
 const AGENT_IDENTITY_SEED = Buffer.from("agent_identity");
