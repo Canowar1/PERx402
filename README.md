@@ -2,6 +2,8 @@
 
 > **Built for [MagicBlock Solana Blitz V2 Hackathon](https://luma.com/olf99o4i?tk=WPBgB2) — Private Payments Track**
 
+[![Live Demo](https://img.shields.io/badge/Live%20Demo-pe--rx402.vercel.app-11B2BA?style=for-the-badge)](https://pe-rx402.vercel.app/)
+
 [![npm](https://img.shields.io/npm/v/perx402-sdk?color=11B2BA&label=perx402-sdk)](https://www.npmjs.com/package/perx402-sdk)
 [![License: MIT](https://img.shields.io/badge/License-MIT-green.svg)](LICENSE)
 [![Solana Devnet](https://img.shields.io/badge/Solana-Devnet-9945FF)](https://explorer.solana.com/address/AVrFfzTREffC188KtCrJ2kf7AGgZFWcrzzRrYMku7k2n?cluster=devnet)
