@@ -394,22 +394,3 @@ Transaction: 5xKm...a9f2
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 ```
 
----
-
-## Future Roadmap
-
-- **~~SDK on npm~~** — ✅ [`perx402-sdk`](https://www.npmjs.com/package/perx402-sdk) published — works with any agent framework (LangChain, Eliza, AutoGPT)
-- **Multi-proxy pool** — expanded anonymity set across multiple proxy nodes
-- **ZK receipt proofs** — prove payment occurred without revealing identity
-- **Cross-chain** — EVM chains via Aztec / zkSync
-- **x402 API marketplace** — discover and pay for APIs privately
-
----
-
-## Team
-
-Built by **Caner Budak** for MagicBlock Solana Blitz V2 Hackathon.
-
-## License
-
-MIT
