@@ -20,7 +20,8 @@ Thumbs.db
 .idea/
 
 # Claude Code internals
-.claude/settings.local.json
+.claude/
+CLAUDE.md
 
 # Logs
 *.log
