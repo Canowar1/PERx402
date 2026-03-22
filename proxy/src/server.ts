@@ -305,6 +305,46 @@ app.get("/receipts", (_req: Request, res: Response) => {
   res.json({ receipts: recent });
 });
 
+// ── Demo x402 endpoint ────────────────────────────────────────────────────────
+// A self-contained x402-protected API for live demos.
+// Returns 402 without X-PAYMENT, returns market data with X-PAYMENT.
+
+const DEMO_USDC_AMOUNT = "100000"; // 0.1 USDC (6 decimals)
+const DEMO_PAY_TO = proxyWallet.publicKey.toBase58();
+
+app.get("/demo/market-data", (req: Request, res: Response) => {
+  const payment = req.headers["x-payment"];
+
+  if (!payment) {
+    // No payment header — return 402 with requirements
+    res.status(402).json({
+      scheme: "exact",
+      network: "solana-devnet",
+      maxAmountRequired: DEMO_USDC_AMOUNT,
+      resource: `${req.protocol}://${req.get("host")}/demo/market-data`,
+      description: "Premium market data feed — PERx402 demo endpoint",
+      payTo: DEMO_PAY_TO,
+      maxTimeoutSeconds: 60,
+      asset: USDC_MINT,
+    });
+    return;
+  }
+
+  // Payment header present — return premium data
+  res.json({
+    symbol: "SOL/USDC",
+    price: 178.42 + (Math.random() * 4 - 2),
+    change24h: "+3.21%",
+    volume24h: 1_234_567 + Math.floor(Math.random() * 100_000),
+    high24h: 181.50,
+    low24h: 174.80,
+    source: "perx402-demo-feed",
+    paidVia: "MagicBlock PER · Private x402",
+    message: "This data was paid for privately — amount and agent identity hidden from Solana.",
+    timestamp: new Date().toISOString(),
+  });
+});
+
 // ── Streaming micropayments ───────────────────────────────────────────────────
 
 interface StreamPayment {

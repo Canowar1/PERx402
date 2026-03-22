@@ -13,7 +13,7 @@ import { useBalance } from "@/hooks/useBalance";
 import { sendPayment, getReceiptDetail } from "@/lib/api";
 
 // Demo defaults
-const DEFAULT_TARGET = "http://localhost:9999/api/market-data";
+const DEFAULT_TARGET = "https://perx402-production.up.railway.app/demo/market-data";
 const DEMO_PROXY_PUBKEY = "9TuKYgjoNcUFEAkqHNvNotkTSsKzSrsCbkoYSH5NsxLN";
 
 const DEFAULT_AGENT: AgentConfig = {
